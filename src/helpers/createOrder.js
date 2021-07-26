@@ -1,6 +1,4 @@
-import Parser from 'fast-xml-parser';
-
-const parser = new Parser.j2xParser();
+const jsonToXml = require('js2xmlparser').parse;
 
 async function createOrder(pipedriveObj) {
   const orderObj = {
@@ -21,7 +19,7 @@ async function createOrder(pipedriveObj) {
     ],
   };
 
-  return parser.parse('pedido', orderObj);
+  return jsonToXml('pedido', orderObj);
 }
 
 module.exports = createOrder;
